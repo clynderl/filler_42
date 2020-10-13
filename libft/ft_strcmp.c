@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/06 15:52:27 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/11 15:31:29 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
-
-int		main(void)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	t_filler	*filler;
+	int i;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s2[i] == s1[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

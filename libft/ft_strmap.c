@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/10 14:45:48 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/13 17:58:50 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		main(void)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	t_filler	*filler;
+	char	*str;
+	char	*result;
+	int		i;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	if (!s || !(result = ft_memalloc((size_t)ft_strlen((char*)s) + 1)))
+		return (NULL);
+	str = (char*)s;
+	i = 0;
+	while (str[i])
+	{
+		result[i] = f(str[i]);
+		i++;
+	}
+	return (result);
 }

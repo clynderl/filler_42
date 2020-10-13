@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/10 15:17:34 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/10 17:30:40 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		main(void)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	t_filler	*filler;
+	char	*substr;
+	size_t	i;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	if (!s || !(substr = ft_memalloc(len + 1)))
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		substr[i] = s[start];
+		i++;
+		start++;
+	}
+	return (substr);
 }

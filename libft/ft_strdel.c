@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/10 13:38:16 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/10 13:40:09 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		main(void)
+void	ft_strdel(char **as)
 {
-	t_filler	*filler;
-
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	ft_memdel((void**)as);
 }

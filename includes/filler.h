@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2020/10/11 10:59:46 by clynderl          #+#    #+#             */
+/*   Updated: 2020/10/13 13:21:53 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#ifndef FILLER_H
+# define FILLER_H
 
-int		main(void)
+# include "libft.h"
+
+typedef	struct	s_board
 {
-	t_filler	*filler;
+	int			width;
+	int			height;
+	int			**heatmap;
+	char		**map;
+}				t_board;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
-}
+typedef	struct	s_point
+{
+	int			x;
+	int			y;
+}				t_point;
+
+
+typedef	struct s_filler
+{
+	t_board		*board;
+	t_board		*piece;
+	t_point		coordinates;
+}				t_filler;
+
+
+
+#endif

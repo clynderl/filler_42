@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/12 17:06:16 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/14 18:15:24 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		main(void)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_filler	*filler;
+	size_t				i;
+	unsigned char		*str1;
+	const unsigned char	*str2;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	if (!dst && !src && len)
+		return (NULL);
+	str1 = (unsigned char*)dst;
+	str2 = (unsigned char*)src;
+	i = 0;
+	if (str2 < str1)
+		while (++i <= len)
+			str1[len - i] = str2[len - i];
+	else
+		while (len-- > 0)
+			*(str1++) = *(str2++);
+	return (dst);
 }

@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/09 18:01:50 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/16 17:48:04 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		main(void)
+char		*ft_itoa(int n)
 {
-	t_filler	*filler;
+	char			*str;
+	size_t			len;
+	unsigned int	num;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	num = n;
+	if (n < 0)
+		num = n * -1;
+	len = ft_getnumsize(num);
+	if (n < 0)
+		len++;
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	str[--len] = num % 10 + '0';
+	while (num /= 10)
+	{
+		str[--len] = num % 10 + '0';
+	}
+	if (n < 0)
+		str[0] = '-';
+	return (str);
 }

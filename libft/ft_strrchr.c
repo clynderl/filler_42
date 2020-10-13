@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2019/09/12 16:31:03 by clynderl          #+#    #+#             */
+/*   Updated: 2019/09/12 16:33:29 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
-
-int		main(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_filler	*filler;
+	char *last_c;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	last_c = 0;
+	while (*s)
+	{
+		if (*s == (char)c)
+			last_c = (char*)s;
+		s++;
+	}
+	if (last_c)
+		return (last_c);
+	if (c == '\0')
+		return ((char*)s);
+	return (0);
 }

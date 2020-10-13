@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   ft_strrealloc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:24:09 by clynderl         ###   ########.fr       */
+/*   Created: 2020/08/13 18:23:17 by clynderl          #+#    #+#             */
+/*   Updated: 2020/08/13 18:23:23 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		main(void)
+char	*ft_strrealloc(char **ptr, size_t size)
 {
-	t_filler	*filler;
+	char	*newptr;
+	size_t	len;
 
-	if (!(filler = init_filler())|| !(parse_player(filler)))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	len = ft_strlen(*ptr);
+	if (!size)
+		size = 120;
+	if (!(newptr = ft_strnew((len + size) * sizeof(char))))
+		return (NULL);
+	ft_strcpy(newptr, *ptr);
+	free(*ptr);
+	*ptr = newptr;
+	return (newptr);
 }
