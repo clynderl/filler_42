@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 10:59:46 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:21:53 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/10/13 13:38:51 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@ typedef	struct s_filler
 }				t_filler;
 
 
+t_filler	*init_filler(void);
+int			parse_player();
+t_board		*init_board(void);
+t_board		*parse_piece(void);
 
 #endif

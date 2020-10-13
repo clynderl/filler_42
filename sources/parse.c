@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.c                                           :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 10:59:23 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:32:40 by clynderl         ###   ########.fr       */
+/*   Created: 2020/10/13 13:33:02 by clynderl          #+#    #+#             */
+/*   Updated: 2020/10/13 13:38:34 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		main(void)
+int		parse_player()
 {
-	t_filler	*filler;
-	int			player;
+	char	*line;
+	int		ret;
 
-	if (!(filler = init_filler())|| !(player = parse_player()))
-		return (0);
-	if (!(filler->board = init_board()) || !(filler->piece = init_piece()))
-			return (0);
+	line = NULL;
+	ret = 0;
+	if (get_next_line(0, &line) != 1 && ft_strstr(line, "$$$ exec")
+			&& ft_strstr(line, "clynderl.filler"))
+	{
+		if (ft_strstr(line, "p1"))
+			ret = 1;
+		else if (ft_strstr(line, "p2"))
+			ret = 2;
+	}
+	ft_memdel(&line);
+	return (ret);
 }
