@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 13:09:47 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 13:22:12 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/10/13 14:23:41 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_board		*init_board(void)
 	return (board);
 }
 
-t_board		*parse_piece(void)
+t_board		*init_piece(void)
 {
 	t_board		*piece;
 
@@ -49,4 +49,27 @@ t_board		*parse_piece(void)
 		piece->map = NULL;
 	}
 	return(piece);
+}
+
+int		**init_heatmap(int h, int w)
+{
+	int		**arr;
+	int		j;
+
+	j = 0;
+	if ((arr = (int **)ft_memalloc(sizeof(int *) *  h)))
+	{
+		while (j < h)
+		{
+			if (!(arr[j] = (int *)ft_memalloc(sizeof(int) * w)))
+			{
+				while (--j >= 0)
+					free(arr[j]);
+				free(arr);
+				return (NULL);
+			}
+			j++;
+		}
+	}
+	return (arr);
 }
