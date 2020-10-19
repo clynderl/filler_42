@@ -15,12 +15,10 @@
 
 static void	print_result(t_filler *filler)
 {
-	ft_log('X');
-	ft_log_int(filler->x);
-	ft_log('Y');
-	ft_log_int(filler->y);
-	printf("%d %d\n", filler->y, filler->x);
-	ft_log('Z');
+	ft_putnbr(filler->x);
+  ft_putchar(' ');
+  ft_putnbr(filler->y);
+  ft_putchar('\n');
 }
 int		ft_log(char c)
 {
@@ -50,7 +48,7 @@ int		main(void)
 			return (0);
 		calc_heatmap(filler->board);
 		put_piece(filler->board, filler->piece, filler);
-		printf("%d %d\n",filler->x, filler->y);
+		print_result(filler);
 		free_board(&(filler->board));
 		free_piece(&(filler->piece));
 		reset_coords(filler);;
