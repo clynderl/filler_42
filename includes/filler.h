@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 10:59:46 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/13 14:23:03 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/10/19 20:06:44 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef	struct s_filler
 {
 	t_board		*board;
 	t_board		*piece;
-	t_point		coordinates;
+	int			x;
+	int			y;
 }				t_filler;
 
 
@@ -43,5 +44,15 @@ int			parse_player();
 t_board		*init_board(void);
 t_board		*init_piece(void);
 int			**init_heatmap(int h, int w);
-
+char		parse_player_char(int player);
+char		parse_enemy_char(int player);
+int			parse_board(t_board *board, int player);
+int			parse_piece(t_board *piece);
+void		calc_heatmap(t_board *board);
+int			put_piece(t_board *board, t_board *piece, t_filler *filler);
+void		free_board(t_board **board);
+void		free_piece(t_board **piece);
+void		reset_coords(t_filler *filler);
+int			ft_log(char c);
+int		ft_log_int(int i);
 #endif
