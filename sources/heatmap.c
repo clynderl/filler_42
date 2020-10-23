@@ -6,16 +6,19 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 17:02:36 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/19 17:08:39 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/10/23 17:38:45 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 #include <limits.h>
 
-int		calc_manhdist(t_board *board, int i, int j)
+static int	calc_val(t_board *board, int i, int j)
 {
-	int k, l, dist, min_dist;
+	int	k;
+	int	l;
+	int	dist;
+	int	min_dist;
 
 	min_dist = INT_MAX;
 	k = 0;
@@ -37,9 +40,10 @@ int		calc_manhdist(t_board *board, int i, int j)
 	return (min_dist);
 }
 
-void	calc_heatmap(t_board *board)
+void		calc_heatmap(t_board *board)
 {
-	int j, i;
+	int	j;
+	int	i;
 
 	j = 0;
 	while (j < board->height)
@@ -48,7 +52,7 @@ void	calc_heatmap(t_board *board)
 		while (i < board->width)
 		{
 			if (board->heatmap[j][i] == 0)
-				board->heatmap[j][i] = calc_manhdist(board, i, j);
+				board->heatmap[j][i] = calc_val(board, i, j);
 			i++;
 		}
 		j++;
