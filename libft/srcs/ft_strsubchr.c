@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strsubchr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 17:47:52 by clynderl          #+#    #+#             */
-/*   Updated: 2019/09/09 17:50:29 by clynderl         ###   ########.fr       */
+/*   Created: 2020/10/23 17:03:25 by clynderl          #+#    #+#             */
+/*   Updated: 2020/10/23 17:03:26 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+char	*ft_strsubchr(const char *s, char c)
 {
-	ft_putnbr_fd(n, 1);
+	char	*ptr;
+
+	if (!(ptr = ft_strchrs(s, c)))
+		return (NULL);
+	return (ft_strsub(s, 0, ptr - s));
 }

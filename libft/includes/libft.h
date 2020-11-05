@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 15:41:20 by clynderl          #+#    #+#             */
-/*   Updated: 2020/08/13 18:57:41 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/10/23 17:04:34 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,7 @@ long double			ft_pow(long double n, int pow);
 char				*ft_itoa_base_unsigned(unsigned long long int n, int b);
 char				*ft_dtoa(long double d, size_t p, size_t base);
 char				*ft_strrealloc(char **ptr, size_t size);
+char				*ft_strsubchr(const char *s, char c);
+char				*ft_strchrs(const char *s, int c);
 
 #endif

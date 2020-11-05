@@ -6,7 +6,7 @@
 /*   By: clynderl <clynderl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 10:59:46 by clynderl          #+#    #+#             */
-/*   Updated: 2020/10/23 17:22:56 by clynderl         ###   ########.fr       */
+/*   Updated: 2020/10/23 17:42:10 by clynderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int			parse_player();
 t_board		*init_board(void);
 t_board		*init_piece(void);
 int			**init_heatmap(int h, int w);
-char		parse_player_char(int player);
-char		parse_enemy_char(int player);
 int			parse_board(t_board *board, int player);
 int			parse_piece(t_board *piece);
 void		calc_heatmap(t_board *board);
